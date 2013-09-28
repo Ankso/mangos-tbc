@@ -30,7 +30,6 @@ using G3D::Vector3;
 
 namespace VMAP
 {
-
     class MapRayCallback
     {
         public:
@@ -227,7 +226,7 @@ namespace VMAP
         {
             height = pPos.z - maxDist;
         }
-        return(height);
+        return height;
     }
 
     //=========================================================
@@ -467,5 +466,4 @@ namespace VMAP
         }
         iLoadedTiles.erase(tile);
     }
-
 }
