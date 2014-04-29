@@ -1024,6 +1024,9 @@ void World::SetInitialWorldSettings()
     sLog.outString("Loading Equipment templates...");
     sObjectMgr.LoadEquipmentTemplates();
 
+    sLog.outString("Loading Creature Stats...");
+    sObjectMgr.LoadCreatureClassLvlStats();
+
     sLog.outString("Loading Creature templates...");
     sObjectMgr.LoadCreatureTemplates();
 
@@ -1872,7 +1875,7 @@ void World::ShutdownCancel()
     DEBUG_LOG("Server %s cancelled.", (m_ShutdownMask & SHUTDOWN_MASK_RESTART ? "restart" : "shutdown"));
 }
 
-void World::UpdateSessions(uint32 diff)
+void World::UpdateSessions(uint32 /*diff*/)
 {
     ///- Add new sessions
     WorldSession* sess;

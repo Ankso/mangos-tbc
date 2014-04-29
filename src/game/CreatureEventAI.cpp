@@ -728,7 +728,7 @@ void CreatureEventAI::ProcessAction(CreatureEventAI_Action const& action, uint32
             break;
         case ACTION_T_COMBAT_MOVEMENT:
             // ignore no affect case
-            if (m_isCombatMovement == (action.combat_movement.state != 0))
+            if (m_isCombatMovement == (action.combat_movement.state != 0) || m_creature->IsNonMeleeSpellCasted(false))
                 return;
 
             SetCombatMovement(action.combat_movement.state != 0, true);
@@ -958,6 +958,11 @@ void CreatureEventAI::ProcessAction(CreatureEventAI_Action const& action, uint32
         case ACTION_T_SET_THROW_MASK:
         {
             m_throwAIEventMask = action.setThrowMask.eventTypeMask;
+            break;
+        }
+        case ACTION_T_SET_STAND_STATE:
+        {
+            m_creature->SetStandState(action.setStandState.standState);
             break;
         }
     }
